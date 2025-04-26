@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Symptom Predictor - HealthSpot</title>
+    <link rel="stylesheet" href="symptom-predictor.css">
+</head>
+<body>
+    <!-- Copy your existing header -->
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"> <img src="/src/logo.png"></a>
+        </div>
+        <div class="doctor"> 
+            <a href="doctor.html"><ul><li>Find Doctors</li></ul></a>
+            <a id="hn">Near you</a>
+        </div>
+        <a href="hospital.html">Hospitals</a>
+        <a href="medicines.html">Medicines</a>
+        <a href="lab.html">Lab Tests</a>
+        <div class="get"> <a href="get.html"><p id="st">Get</p>
+            <p>Appointment</p></a>
+        </div>
+    </div>
+    <div class="line"></div>
+    <!-- Symptom Predictor Content -->
+    <div class="predictor-container">
+        <h1>AI Symptom Predictor</h1>
+        
+        <div class="disclaimer">
+            <p><strong>Important:</strong> This tool provides information for educational purposes only and is not a substitute for professional medical advice. Always consult with a healthcare provider for diagnosis and treatment.</p>
+        </div>
+        <div class="symptom-form">
+            <div class="form-section">
+                <h3>Select Your Symptoms</h3>
+                <div class="search-box">
+                    <input type="text" id="symptom-search" placeholder="Search symptoms...">
+                </div>
+                <div class="symptom-list" id="symptom-list">
+                    <!-- Populated via JavaScript -->
+                </div>
+                <div class="selected-symptoms">
+                    <h4>Selected Symptoms:</h4>
+                    <div id="selected-symptoms-container">
+                        <p id="no-symptoms">No symptoms selected</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Pain Level</h3>
+                <div class="pain-meter">
+                    <input type="range" min="0" max="10" value="0" id="pain-level">
+                    <div class="pain-labels">
+                        <span>No Pain</span>
+                        <span>Moderate</span>
+                        <span>Severe</span>
+                    </div>
+                    <p>Current pain level: <span id="pain-value">0</span>/10</p>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Duration of Symptoms</h3>
+                <select id="duration">
+                    <option value="">Select duration</option>
+                    <option value="less than a day">Less than a day</option>
+                    <option value="1-3 days">1-3 days</option>
+                    <option value="3-7 days">3-7 days</option>
+                    <option value="1-2 weeks">1-2 weeks</option>
+                    <option value="2-4 weeks">2-4 weeks</option>
+                    <option value="1-3 months">1-3 months</option>
+                    <option value="more than 3 months">More than 3 months</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <h3>Additional Information</h3>
+                <textarea id="additional-info" placeholder="Provide any additional details about your symptoms..."></textarea>
+            </div>
+            <button id="analyze-button">Analyze Symptoms</button>
+        </div>
+        <div id="results-container" class="hidden">
+            <h2>Analysis Results</h2>
+            <div id="predictions"></div>
+            <div id="recommendations"></div>
+            
+            <div class="action-buttons">
+                <button id="find-doctor">Find a Doctor</button>
+                <button id="reset">New Analysis</button>
+            </div>
+        </div>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your symptoms...</p>
+        </div>
+    </div>
+    <script src="symptom-predictor.js"></script>
+</body>
+</html>
